@@ -1,3 +1,8 @@
+#### Visit below url to execute call as this application is integrated with swagger-ui http://localhost:8080
+
+
+##### To avoid TOO_MANY_REQUEST added mock data
+
 # Coding Challenge
 
 ### In this assessment you will be tasked with filling out the functionality of different methods that will be listed further down.

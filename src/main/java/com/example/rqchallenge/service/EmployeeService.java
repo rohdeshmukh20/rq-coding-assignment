@@ -124,7 +124,7 @@ public class EmployeeService {
     }
 
     public ResponseEntity<Integer> getHighestSalaryOfEmployees() {
-        Integer max = new Integer(0);
+        Integer max = 0;
         ResponseEntity<EmployeeResponse>  responseEntity;
         try {
             responseEntity = restTemplate.getForEntity(
@@ -205,7 +205,7 @@ public class EmployeeService {
         }
     }
 
-    public ResponseEntity<String> deleteEmployeeById(String id) {
+    public ResponseEntity<String> deleteEmployeeById(String id) throws HttpClientErrorException.TooManyRequests {
         Map<String, String> uriVariables = new HashMap<>();
         uriVariables.put(apiDeleteEmployeeParam, id);
 
@@ -233,7 +233,7 @@ public class EmployeeService {
         catch (HttpClientErrorException httpClientErrorException) {
             log.warn("Delete operation not allowed, trying to get employee with ID: {} ", id);
             ResponseEntity<Employee> employee = getEmployeeById(id);
-            if(employee.getBody() != null) {
+            if (employee.getBody() != null) {
                 log.warn("Employee found, hence it can be deleted whenever operation is allowed by server");
                 return new ResponseEntity<>(employee.getBody().getEmployee_name(),
                         HttpStatus.OK);

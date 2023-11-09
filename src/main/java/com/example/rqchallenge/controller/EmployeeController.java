@@ -116,7 +116,6 @@ public class EmployeeController implements IEmployeeController {
 
     @Override
     public ResponseEntity<String> deleteEmployeeById(String id) {
-        ResponseEntity<List<Employee>> entity;
         try {
             if (!StringUtils.isEmpty(id)) {
                 return employeeService.deleteEmployeeById(id);

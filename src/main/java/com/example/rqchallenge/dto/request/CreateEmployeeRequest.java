@@ -1,5 +1,6 @@
 package com.example.rqchallenge.dto.request;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 @NotNull
 @NotEmpty
+@AllArgsConstructor
 public class CreateEmployeeRequest {
     @NotNull(message = "name cannot be empty")
     private String name;
